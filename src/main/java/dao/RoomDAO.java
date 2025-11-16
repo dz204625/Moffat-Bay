@@ -19,7 +19,7 @@ public class RoomDAO {
                     r.setRoomId(rs.getInt("roomId"));
                     r.setRoomType(rs.getString("roomType"));
                     r.setPricePerNight(rs.getBigDecimal("pricePerNight"));
-                    r.setRoomDescription(rs.getString("roomDescription"));
+                    r.setRoomDescription(rs.getString("roomDetails"));
                     return r;
                 }
             }
@@ -31,16 +31,16 @@ public class RoomDAO {
 
     public List<Room> getAllRooms() {
         List<Room> out = new ArrayList<>();
-        String sql = "SELECT * FROM room";
+        String sql = "SELECT * FROM Room";
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 Room r = new Room();
-                //r.setRoomId(rs.getInt("roomId"));
-                r.setRoomType(rs.getString("room_type"));
-                r.setPricePerNight(rs.getBigDecimal("price_per_night"));
-                r.setRoomDescription(rs.getString("room_details"));
+                r.setRoomId(rs.getInt("roomId"));
+                r.setRoomType(rs.getString("roomType"));
+                r.setPricePerNight(rs.getBigDecimal("pricePerNight"));
+                r.setRoomDescription(rs.getString("roomDetails"));
                 out.add(r);
             }
         } catch (SQLException ex) {

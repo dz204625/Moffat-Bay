@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dao.RoomDAO, model.Room, java.util.List" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +21,32 @@
     </section>
     
     <section>
-     	<!-- Include SearchForm -->
-    	<jsp:include page="searchRoom.jsp" />
+    	  <%
+	    RoomDAO dao = new RoomDAO();
+	    List<Room> rooms = dao.getAllRooms().size() > 3 ? dao.getAllRooms().subList(0, 3) : dao.getAllRooms() ;
+	%>
+
+		<div class="room-list">
+		<h2>Check Out Some of Our Rooms</h2>
+		    <%
+		        if (rooms != null && !rooms.isEmpty()) {
+		            for (Room room : rooms) {
+		                request.setAttribute("room", room);   // Pass room to child JSP
+		    %>
+		
+		                <jsp:include page="room.jsp" />
+		
+		    <%
+		            }
+		        } else {
+		    %>
+		
+		        <p>No rooms available at this time.</p>
+		
+		    <%
+		        }
+		    %>
+		</div>
     </section>
 
     <!-- Features Section -->

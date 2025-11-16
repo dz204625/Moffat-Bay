@@ -1,5 +1,7 @@
+
+
 <div class="search-container">
-    <form action="rooms.jsp" method="get" class="search-form">
+    <form action="" method="get" class="search-form">
         <div class="form-group">
             <label for="checkin">Check in</label>
             <input type="date" id="checkin" name="checkin" required>
@@ -11,12 +13,12 @@
         </div>
         <div class="divider"></div>
         <div class="form-group">
-            <label for="guests">Rooms & guests</label>
+            <label for="guests">Guests</label>
             <select id="guests" name="guests">
-                <option>1 room, 1 guest</option>
-                <option>1 room, 2 guests</option>
-                <option>2 rooms, 4 guests</option>
-                <option>3 rooms, 6 guests</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
             </select>
         </div>
         <button type="submit" class="btn-orange search-btn">Search</button>
