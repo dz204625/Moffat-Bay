@@ -1,12 +1,12 @@
 <header>
-    <div class="logo">LOGO</div>
+    <div class="logo"><a href="index.jsp">Moffat Bay Lodge</a></div>
     <nav>
         <ul>
             <li><a href="index.jsp">Home</a></li>
+            <li><a href="rooms.jsp">Rooms</a></li>
             <li><a href="#">Attractions</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><button class="login-btn">Log In</button></li>
+            <li><button class="btn-orange">Log In</button></li>
         </ul>
     </nav>
 </header>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dao.RoomDAO, model.Room, java.util.List" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,36 +15,76 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h3>Escape to Moffat Bay Lodge — your peaceful retreat on the edge of wilderness and waterfront. Enjoy breathtaking views, cozy accommodations, and the warmth of Pacific Northwest hospitality.</h3>
+        <p>Experience tranquility, adventure, and comfort — all in one unforgettable stay.</p>
         <button class="btn-orange">Book Now</button>
+    </section>
+    
+    <section>
+    	  <%
+	    RoomDAO dao = new RoomDAO();
+	    List<Room> rooms = dao.getAllRooms().size() > 3 ? dao.getAllRooms().subList(0, 3) : dao.getAllRooms() ;
+	%>
+
+		<div class="room-list">
+		<h2>Check Out Some of Our Rooms</h2>
+		    <%
+		        if (rooms != null && !rooms.isEmpty()) {
+		            for (Room room : rooms) {
+		                request.setAttribute("room", room);   // Pass room to child JSP
+		    %>
+		
+		                <jsp:include page="room.jsp" />
+		
+		    <%
+		            }
+		        } else {
+		    %>
+		
+		        <p>No rooms available at this time.</p>
+		
+		    <%
+		        }
+		    %>
+		</div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
         <div class="feature-item">
-            <div class="image-placeholder"></div>
+            <img class="image-placeholder" src="./images/large-hotel-palm-trees-beach-thailand.jpg" alt="Palm Tree and Beach" title="Credit: Tirachard"/>
         </div>
         <div class="feature-item">
             <h3>Amenities</h3>
             <ul>
-                <li>Benefit of Feature</li>
-                <li>Benefit of Feature</li>
+                <li>Complimentary breakfast featuring local ingredients</li>
+				<li>Free high-speed Wi-Fi across the property</li>
+				<li>Private waterfront decks with panoramic bay views</li>
+				<li>Cozy fireplaces and luxury bedding</li>
+				<li>On-site dining and full-service bar</li>
             </ul>
         </div>
         <div class="feature-item">
             <h3>Features</h3>
             <ul>
-                <li>Benefit of Feature</li>
-                <li>Benefit of Feature</li>
+                <li>Eco-friendly lodge designed with sustainability in mind</li>
+				<li>Guided nature tours and kayak excursions</li>
+				<li>Pet-friendly cabins and family suites</li>
+				<li>Seasonal spa services and outdoor hot tubs</li>
+				<li>Easy access to nearby hiking and fishing spots</li>
+
             </ul>
         </div>
         <div class="feature-item">
             <h3>Attractions</h3>
             <ul>
-                <li>Benefit of Feature</li>
-                <li>Benefit of Feature</li>
+                <li>Whale-watching tours departing daily from the marina</li>
+				<li>Moffat Bay Nature Reserve and Scenic Lookout</li>
+				<li>Coastal Trail with stunning sunset views</li>
+				<li>Local art galleries, breweries, and farmers markets</li>
+				<li>Historical lighthouse and museum within 10 minutes</li>
             </ul>
-            <button class="btn-orange small">View More</button>
+            <button class="btn-orange">View More</button>
         </div>
     </section>
 
