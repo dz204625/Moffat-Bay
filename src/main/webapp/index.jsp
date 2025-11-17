@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>Moffat Bay Lodge</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">       
 </head>
 <body>
 
@@ -17,10 +18,11 @@
     <section class="hero">
         <h3>Escape to Moffat Bay Lodge — your peaceful retreat on the edge of wilderness and waterfront. Enjoy breathtaking views, cozy accommodations, and the warmth of Pacific Northwest hospitality.</h3>
         <p>Experience tranquility, adventure, and comfort — all in one unforgettable stay.</p>
-        <button class="btn-orange">Book Now</button>
+        <button class="btn-orange" onclick="location.href='rooms.jsp'">Book Now</button>
     </section>
     
     <section>
+
     	  <%
 	    RoomDAO dao = new RoomDAO();
 	    List<Room> rooms = dao.getAllRooms().size() > 3 ? dao.getAllRooms().subList(0, 3) : dao.getAllRooms() ;
@@ -84,7 +86,7 @@
 				<li>Local art galleries, breweries, and farmers markets</li>
 				<li>Historical lighthouse and museum within 10 minutes</li>
             </ul>
-            <button class="btn-orange">View More</button>
+            <button class="btn-orange" onclick="location.href='attractions.jsp'">View More</button>
         </div>
     </section>
 
