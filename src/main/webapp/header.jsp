@@ -8,7 +8,9 @@
             <li><a href="about.jsp">About</a></li>
             <% 
                 Object user = session.getAttribute("user");
-                if (user == null) { 
+            	Integer customerId = (Integer) session.getAttribute("customerId");
+
+                if (customerId == null) { 
             %>
                             <li>
                 <a href="login.jsp">
