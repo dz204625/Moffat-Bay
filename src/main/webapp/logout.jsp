@@ -15,35 +15,8 @@
     <jsp:include page="header.jsp" />
      
     <section>   
-    <%
-	    RoomDAO dao = new RoomDAO();
-	    List<Room> rooms = dao.getAllRooms();
-	%>
-
-		<div class="room-list">
-		<h2>Our Rooms</h2>
-		    <%
-		        if (rooms != null && !rooms.isEmpty()) {
-		            for (Room room : rooms) {
-		                request.setAttribute("room", room);   // Pass room to child JSP
-		    %>
-		
-		                <jsp:include page="room.jsp" />
-		
-		    <%
-		            }
-		        } else {
-		    %>
-		
-		        <p>No rooms available at this time.</p>
-		
-		    <%
-		        }
-		    %>
-		</div>
-
-     
-     </section>
+  		<h2>You have been logged out</h2>
+    </section>
 
 
     <!-- Include CTA Section -->

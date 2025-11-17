@@ -6,8 +6,8 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="rooms.jsp">Rooms</a></li>       
-                <li><a href="#">Attractions</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="attractions.jsp">Attractions</a></li>
+                <li><a href="about.jsp">About</a></li>
             </ul>
         </div>
         <div>
