@@ -18,14 +18,14 @@
     <section class="hero">
         <h3>Escape to Moffat Bay Lodge — your peaceful retreat on the edge of wilderness and waterfront. Enjoy breathtaking views, cozy accommodations, and the warmth of Pacific Northwest hospitality.</h3>
         <p>Experience tranquility, adventure, and comfort — all in one unforgettable stay.</p>
-        <button class="btn-orange" onclick="location.href='rooms.jsp'">Book Now</button>
+        <button class="btn-orange" onclick="location.href='reservation.jsp'">Book Now</button>
     </section>
     
     <section>
 
     	  <%
 	    RoomDAO dao = new RoomDAO();
-	    List<Room> rooms = dao.getAllRooms().size() > 3 ? dao.getAllRooms().subList(0, 3) : dao.getAllRooms() ;
+	    List<Room> rooms = dao.getAllRooms();
 	%>
 
 		<div class="room-list">
