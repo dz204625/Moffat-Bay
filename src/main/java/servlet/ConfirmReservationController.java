@@ -31,6 +31,7 @@ public class ConfirmReservationController extends HttpServlet {
 
         if (success) {
             session.removeAttribute("reservation"); // clear session
+            session.removeAttribute("room");            
             request.setAttribute("message", "Reservation confirmed!");
             request.getRequestDispatcher("reservationSuccess.jsp").forward(request, response);
         } else {

@@ -16,7 +16,6 @@
 <p><strong>Guests:</strong> <%= r.getNumGuests() %></p>
 <p><strong>Check-In:</strong> <%= r.getCheckInDate() %></p>
 <p><strong>Check-Out:</strong> <%= r.getCheckOutDate() %></p>
-<p><strong>Nights:</strong> <%= r.getNights() %></p>
 <p><strong>Total Price:</strong> $<%= r.getTotalPrice() %></p>
 
 <form action="ConfirmReservationController" method="post" style="display:inline;">

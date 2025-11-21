@@ -11,8 +11,16 @@
 <jsp:include page="header.jsp" />
 
 <div class="success-container">
-       <jsp:include page="lookUpReservation.jsp" />
-    
+    <h1>Reservation Confirmed!</h1>
+
+    <%
+        String message = (String) request.getAttribute("message");
+        if (message != null) {
+    %>
+        <p><strong><%= message %></strong></p>
+    <%
+        }
+    %>
 
 </div>
 

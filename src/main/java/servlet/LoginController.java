@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute("customerEmail", customer.getEmail());
 
             // Redirect to home or reservation page
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("reservation.jsp");
         } else {
             // Login failed
             request.setAttribute("errorMessage", "Invalid email or password");

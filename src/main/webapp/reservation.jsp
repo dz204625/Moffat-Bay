@@ -49,6 +49,7 @@
     King - $168.00/night
 </option>
 </select>
+<br><br>
 
     <label>Number of Guests:</label><br>
     <input type="number" name="numGuests" min="1" max="6" required><br><br>
