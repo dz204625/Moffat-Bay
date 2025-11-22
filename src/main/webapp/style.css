@@ -42,6 +42,22 @@ nav ul li {
     list-style: none;
 }
 
+nav ul li a:hover {
+    color: #fbbc04; /* orange */
+}
+
+/* Active link (when clicking or focused) */
+nav ul li a:active,
+nav ul li a:focus {
+    color: #fbbc04;
+}
+
+/* Highlight current page using a class */
+nav ul li a.active {
+    color: #fbbc04;
+}
+
+
 .wrapper {
     max-width: 90%;
     margin: 50px auto;
@@ -120,7 +136,7 @@ nav ul li {
 
 .image-placeholder {
     width: 100%;
-    height: 100%;
+    height:150px;
 }
 
 .small {
