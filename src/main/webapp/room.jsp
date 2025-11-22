@@ -23,7 +23,7 @@
             <p class="price">$<%= room.getPricePerNight() %> / night</p>
             <button class="btn-orange" 
 			        onclick="location.href='reservation.jsp?roomId=<%= room.getRoomId() %>'">
-			    Book Now
+			    Select the Room
 			</button>
         </div>
     </div>

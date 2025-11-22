@@ -23,6 +23,10 @@
 	        return;
 	 }
    Integer roomId = null;
+   String firstName = (String) session.getAttribute("customerFirstName");
+   String lastName = (String) session.getAttribute("customerLastName");
+   String phone = (String) session.getAttribute("phone");
+   String email = (String) session.getAttribute("customerEmail");
 
    try {
        if (request.getParameter("roomId") != null) {
@@ -33,6 +37,11 @@
    }	
 	%>
 	<section>
+		<h2>Profile</h2>
+	    	<p>Name: <%= firstName + " " + lastName %></p>
+	    	<p>Phone: <%=phone %></p>
+	    	<p>Email: <%=email %></p>
+	    	<hr>
 	    <h2>Book Your Vacation</h2>
 		<form action="ReservationController" method="post">
 			<label>Room Type:</label><br>
