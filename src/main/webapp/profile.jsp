@@ -3,18 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reservation Successful - Moffat Bay Lodge</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Moffat Bay Lodge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">       
 </head>
 <body>
-
-<jsp:include page="header.jsp" />
-
-<div class="success-container">
-       <jsp:include page="lookUpReservation.jsp" />
-    
-
-</div>
-
-</body>
+   	<!-- Include Footer -->
+	<jsp:include page="lookUpReservation.jsp" />
+	
+</body>    
 </html>

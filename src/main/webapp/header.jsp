@@ -12,11 +12,11 @@
 
                 if (customerId == null) { 
             %>
-                            <li>
+            <li>
                 <a href="login.jsp">
                     <button class="btn-orange">Log In</button>
-                </a>            </li>
-                
+                </a>
+            </li>    
             <% 
                 } else { 
             %>

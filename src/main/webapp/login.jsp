@@ -13,7 +13,7 @@
     <!-- Include Header -->
     <jsp:include page="header.jsp" />
 
-	<section>
+	<section class="wrapper">
 	    <h2>Login</h2>
 	    <form action="LoginController" method="post">
 	        <label>Email:</label><br>
@@ -22,13 +22,12 @@
 	        <label>Password:</label><br>
 	        <input type="password" name="password" required><br>
 	
-	        <button type="submit">Login</button>
+	        <button type="submit" class="btn-orange">Login</button>
 	    </form>
-	    <p>Don't have an account? <a href="register.jsp">Register here</a></p>
+	    <p>Don't have an account? 
+		<button class="btn-orange" onclick="location.href='register.jsp'">Register Here</button>
+		</p>
 	</section>
-
-    <!-- Include CTA Section -->
-    <jsp:include page="cta.jsp" />
 
     <!-- Include Footer -->
     <jsp:include page="footer.jsp" />

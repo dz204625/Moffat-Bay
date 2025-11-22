@@ -26,11 +26,13 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", customer);
             session.setAttribute("customerId", customer.getCustomerId()); // store customer ID
-            session.setAttribute("customerName", customer.getFirstName()); // optional
+            session.setAttribute("customerFirstName", customer.getFirstName()); // optional
+            session.setAttribute("customerLastName", customer.getLastName()); // optional
+            session.setAttribute("phone", customer.getPhone()); // optional
             session.setAttribute("customerEmail", customer.getEmail());
 
             // Redirect to home or reservation page
-            response.sendRedirect("reservation.jsp");
+            response.sendRedirect("profile.jsp");
         } else {
             // Login failed
             request.setAttribute("errorMessage", "Invalid email or password");

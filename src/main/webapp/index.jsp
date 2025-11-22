@@ -22,12 +22,20 @@
     </section>
     
     <section>
-
-    	  <%
-	    RoomDAO dao = new RoomDAO();
-	    List<Room> rooms = dao.getAllRooms();
-	%>
-
+    	<%
+		    RoomDAO dao = new RoomDAO();
+		    List<Room> rooms = dao.getAllRooms();
+		%>
+		
+    	<div class="wrapper">
+		  	<h2>Find Your Reservation</h2>
+		    <form action="LookupController" method="get">
+		        <label>Search by Reservation ID or Email:</label>
+		        <input type="text" name="search" placeholder="Enter ID or email" required>
+		        <button type="submit" class="btn-orange">Search</button>
+		    </form>
+		</div>
+	    
 		<div class="room-list">
 		<h2>Check Out Some of Our Rooms</h2>
 		    <%
@@ -47,7 +55,7 @@
 		
 		    <%
 		        }
-		    %>
+		    %>	
 		</div>
     </section>
 

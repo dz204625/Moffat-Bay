@@ -60,24 +60,9 @@ public class ReservationController extends HttpServlet {
      // Attach to request
         session.setAttribute("reservation", reservation);
         session.setAttribute("room", room);
-        
-       // request.setAttribute("reservation", reservation);
-        //request.setAttribute("room", room);
 
         // Forward to confirmation summary
         request.getRequestDispatcher("reservationSummary.jsp")
                .forward(request, response);
-        /*
-        // Save to DB
-        ReservationDAO reservationDAO = new ReservationDAO();
-        boolean success = reservationDAO.addReservation(reservation);
-
-        if (success) {
-            request.setAttribute("message", "Reservation successfully created!");
-            request.getRequestDispatcher("reservationSuccess.jsp").forward(request, response);
-        } else {
-            request.setAttribute("error", "Error saving reservation. Try again.");
-            request.getRequestDispatcher("reservation.jsp").forward(request, response);
-        }*/
     }
 }
