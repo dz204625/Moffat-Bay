@@ -46,10 +46,8 @@
 	<!-- Include reservation -->
 	<jsp:include page="reservationForm.jsp" />
 	
-	
-	<h3>Reservation Results:</h3>
-	
 	<% if (reservations != null && !reservations.isEmpty()) { %>
+		<h3>Reservation Results:</h3>
 	
 	    <% for (Reservation res : reservations) { %>
 	        <div style="border:1px solid #ccc; padding:15px; margin-bottom:15px; border-radius:8px;">
