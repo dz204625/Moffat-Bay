@@ -8,6 +8,7 @@
     <title>Moffat Bay Lodge</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">       
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 </head>
 <body>
 
@@ -18,16 +19,24 @@
     <section class="hero">
         <h3>Escape to Moffat Bay Lodge — your peaceful retreat on the edge of wilderness and waterfront. Enjoy breathtaking views, cozy accommodations, and the warmth of Pacific Northwest hospitality.</h3>
         <p>Experience tranquility, adventure, and comfort — all in one unforgettable stay.</p>
-        <button class="btn-orange" onclick="location.href='rooms.jsp'">Book Now</button>
+        <button class="btn-orange" onclick="location.href='reservation.jsp'">Book Now</button>
     </section>
     
     <section>
-
-    	  <%
-	    RoomDAO dao = new RoomDAO();
-	    List<Room> rooms = dao.getAllRooms().size() > 3 ? dao.getAllRooms().subList(0, 3) : dao.getAllRooms() ;
-	%>
-
+    	<%
+		    RoomDAO dao = new RoomDAO();
+		    List<Room> rooms = dao.getAllRooms();
+		%>
+		
+    	<div class="wrapper">
+		  	<h2>Find Your Reservation</h2>
+		    <form action="LookupController" method="get">
+		        <label>Search by Reservation ID or Email:</label>
+		        <input type="text" name="search" placeholder="Enter ID or email" required>
+		        <button type="submit" class="btn-orange">Search</button>
+		    </form>
+		</div>
+	    
 		<div class="room-list">
 		<h2>Check Out Some of Our Rooms</h2>
 		    <%
@@ -47,7 +56,7 @@
 		
 		    <%
 		        }
-		    %>
+		    %>	
 		</div>
     </section>
 

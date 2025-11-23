@@ -42,6 +42,37 @@ nav ul li {
     list-style: none;
 }
 
+nav ul li a:hover {
+    color: #fbbc04; /* orange */
+}
+
+/* Active link (when clicking or focused) */
+nav ul li a:active,
+nav ul li a:focus {
+    color: #fbbc04;
+}
+
+/* Highlight current page using a class */
+nav ul li a.active {
+    color: #fbbc04;
+}
+
+
+.wrapper {
+    max-width: 90%;
+    margin: 50px auto;
+}
+
+.wrapper input, select {
+    width: 30%;
+    padding: 0.7rem 0.85rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
 /* ===== Hero Section ===== */
 .hero {
 	width: 100%;
@@ -105,7 +136,7 @@ nav ul li {
 
 .image-placeholder {
     width: 100%;
-    height: 100%;
+    height:150px;
 }
 
 .small {
@@ -236,7 +267,6 @@ nav ul li {
 .room-list {
     max-width: 90%;
     margin: 0 auto;
-
 }
 
 /* Main row layout */
@@ -309,6 +339,8 @@ nav ul li {
     display: inline-block;
     transition: 0.2s ease;
 }
+
+
 
 
 
