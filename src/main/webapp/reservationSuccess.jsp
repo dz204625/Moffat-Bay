@@ -12,7 +12,7 @@
     <!-- Include Header -->
     <jsp:include page="header.jsp" />
 
-	<div>
+	<section class="wrapper">
 	    <h1>Reservation Confirmed!</h1>
 	    <%
 	        String message = (String) request.getAttribute("message");
@@ -22,7 +22,7 @@
 	    <%
 	        }
 	    %>
-	</div>
+	</section>
 
     <!-- Include Footer -->
     <jsp:include page="footer.jsp" />

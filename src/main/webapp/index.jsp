@@ -63,7 +63,7 @@
     <!-- Features Section -->
     <section class="features">
         <div class="feature-item">
-            <img class="image-placeholder" src="./images/large-hotel-palm-trees-beach-thailand.jpg" alt="Palm Tree and Beach" title="Credit: Tirachard"/>
+            <img class="image-placeholder" src="./images/salish_salmon.gif" alt="Salish Salmon" />
         </div>
         <div class="feature-item">
             <h3>Amenities</h3>
