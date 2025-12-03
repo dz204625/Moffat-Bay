@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 public class CustomerDAO {
 
     public boolean registerCustomer(Customer c) {
-        String sql = "INSERT INTO Customer (firstName, lastName, email, phone, passwordHash) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO customer (firstName, lastName, email, phone, passwordHash) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -31,7 +31,7 @@ public class CustomerDAO {
     }
 
     public Customer validateLogin(String email, String password) {
-        String sql = "SELECT * FROM Customer WHERE email = ? AND passwordHash = ?";
+        String sql = "SELECT * FROM customer WHERE email = ? AND passwordHash = ?";
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, email);
