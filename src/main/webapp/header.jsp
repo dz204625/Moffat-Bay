@@ -40,14 +40,27 @@
             </a>
         </li>
         <li>
-            <a href="book.jsp"
-               class="<%= currentPage.endsWith("book.jsp") ? "active" : "" %>">
-                Book
-            </a>
-        </li>
+<%
+    Integer customerId = (Integer) session.getAttribute("customerId");
+    if (customerId == null) {
+%>
+        <a href="login.jsp?redirect=book.jsp"
+           class="<%= currentPage.endsWith("book.jsp") ? "active" : "" %>">
+            Book
+        </a>
+<%
+    } else {
+%>
+        <a href="book.jsp"
+           class="<%= currentPage.endsWith("book.jsp") ? "active" : "" %>">
+            Book
+        </a>
+<%
+    }
+%>
+</li>
 
         <% 
-            Integer customerId = (Integer) session.getAttribute("customerId"); 
             if (customerId == null) { 
         %>
             <li>

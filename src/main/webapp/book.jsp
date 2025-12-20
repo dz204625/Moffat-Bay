@@ -14,25 +14,31 @@
     <jsp:include page="header.jsp" />
 
 <section class="wrapper">
-<%
-	 if (session.getAttribute("user") == null) {
-	        response.sendRedirect("login.jsp?msg=Please login first");
-	        return;
-	 }
-   Integer roomId = null;
-   String firstName = (String) session.getAttribute("customerFirstName");
-   String lastName = (String) session.getAttribute("customerLastName");
-   String phone = (String) session.getAttribute("phone");
-   String email = (String) session.getAttribute("customerEmail");
 
-   try {
-       if (request.getParameter("roomId") != null) {
-           roomId = Integer.parseInt(request.getParameter("roomId"));
-       }
-   } catch (Exception e) {
-       roomId = null;
-   }	
-	%>
+<%
+if (session.getAttribute("user") == null) {
+    String roomIdParam = request.getParameter("roomId");
+    String redirectUrl = "login.jsp?redirect=book.jsp";
+
+    if (roomIdParam != null) {
+        redirectUrl += "?roomId=" + roomIdParam;
+    }
+
+    response.sendRedirect(redirectUrl);
+    return;
+}
+
+Integer roomId = null;
+try {
+    if (request.getParameter("roomId") != null) {
+        roomId = Integer.parseInt(request.getParameter("roomId"));
+    }
+} catch (Exception e) {
+    roomId = null;
+}
+%>
+
+
 	<!-- Include reservation -->
 	<jsp:include page="reservationForm.jsp" />
 	

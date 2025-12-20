@@ -26,18 +26,32 @@
 		<% } %>
 		
 	    <h2>Login</h2>
-	    <form action="LoginController" method="post">
-	        <label>Email:</label><br>
-	        <input type="email" name="email" required><br>
+
+<form action="LoginController" method="post">
 	
-	        <label>Password:</label><br>
-	        <input type="password" name="password" required><br>
-	
-	        <button type="submit" class="btn-orange">Login</button>
-	    </form>
-	    <p>Don't have an account? 
-		<button class="btn-orange" onclick="location.href='register.jsp'">Register Here</button>
-		</p>
+    <input type="email" name="email" required>
+   <br>
+    <input type="password" name="password" required>
+   
+ <br>
+    <%
+        String redirect = request.getParameter("redirect");
+        if (redirect != null) {
+    %>
+        <input type="hidden" name="redirect" value="<%= redirect %>">
+    <%
+        }
+    %>
+
+    <button type="submit"  class="btn-orange">Log In</button>
+</form>
+
+<p>Don't have an account?
+    <button class="btn-orange" onclick="location.href='register.jsp'">
+        Register Here
+    </button>
+</p>
+
 	</section>
 
     <!-- Include Footer -->
