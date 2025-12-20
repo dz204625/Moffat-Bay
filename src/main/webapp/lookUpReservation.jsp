@@ -27,7 +27,6 @@
 
 	if(email == null) {
 		reservations = (List<Reservation>) request.getAttribute("reservations");
-	
 	} else {
 		reservations = dao.findReservationByIdOrEmail(email);
 	}

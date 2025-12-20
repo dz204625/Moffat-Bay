@@ -33,6 +33,18 @@
                 About
             </a>
         </li>
+        <li>
+            <a href="lookUp.jsp"
+               class="<%= currentPage.endsWith("lookUp.jsp") ? "active" : "" %>">
+                Look Up
+            </a>
+        </li>
+        <li>
+            <a href="book.jsp"
+               class="<%= currentPage.endsWith("book.jsp") ? "active" : "" %>">
+                Book
+            </a>
+        </li>
 
         <% 
             Integer customerId = (Integer) session.getAttribute("customerId"); 

@@ -23,7 +23,7 @@ public class LookupController extends HttpServlet {
         	 List<Reservation> list = dao.findReservationByIdOrEmail(search);
              request.setAttribute("reservations", list);
         }
-        RequestDispatcher rd = request.getRequestDispatcher("lookUpReservation.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("lookUp.jsp");
         rd.forward(request, response);
     }
 }

@@ -29,6 +29,28 @@ public class CustomerDAO {
         }
         return false;
     }
+    
+    public String getCustomerFullNameById(int customerId) {
+        String sql = "SELECT firstName, lastName FROM customer WHERE customerId = ?";
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, customerId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("firstName") + " " + rs.getString("lastName");
+                }
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null; // or "Unknown Customer"
+    }
+
 
     public Customer validateLogin(String email, String password) {
         String sql = "SELECT * FROM customer WHERE email = ? AND passwordHash = ?";

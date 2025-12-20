@@ -22,7 +22,7 @@ public class ConfirmReservationController extends HttpServlet {
         Reservation r = (Reservation) session.getAttribute("reservation");
 
         if (r == null) {
-            response.sendRedirect("reservation.jsp");
+            response.sendRedirect("book.jsp");
             return;
         }
 
@@ -33,7 +33,7 @@ public class ConfirmReservationController extends HttpServlet {
             session.removeAttribute("reservation"); // clear session
             session.removeAttribute("room");            
             request.setAttribute("message", "Reservation confirmed!");
-            request.getRequestDispatcher("reservationSuccess.jsp").forward(request, response);
+            request.getRequestDispatcher("reservationSummary.jsp").forward(request, response);
         } else {
             request.setAttribute("error", "Failed to confirm reservation.");
             request.getRequestDispatcher("reservationSummary.jsp").forward(request, response);

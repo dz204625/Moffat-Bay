@@ -1,5 +1,5 @@
 <%@ page session="true" %>
-<%@ page import="model.Reservation" %>
+<%@ page import="model.Reservation, dao.RoomDAO, model.Room" %>
 
 <head>
     <meta charset="UTF-8">
@@ -12,19 +12,18 @@
 	    <!-- Include Header -->
 	    <jsp:include page="header.jsp" />
 	    <section class="wrapper">
+	     
 	
 		<%
-		    Reservation r = (Reservation) session.getAttribute("reservation");
+	    RoomDAO roomDAO = new RoomDAO();
+	    Reservation r = (Reservation) session.getAttribute("reservation");
+	    String roomType = roomDAO.getRoomById(r.getRoomId()).getRoomType();
 		
-		    if (r == null) {
-		        response.sendRedirect("reservation.jsp");
-		        return;
-		    }
 		%>
 		
 		<h2>Reservation Summary</h2>
 		
-		<p><strong>Room:</strong> <%= r.getRoomId() %></p>
+		<p><strong>Room Type:</strong> <%= roomType %></p>
 		<p><strong>Guests:</strong> <%= r.getNumGuests() %></p>
 		<p><strong>Check-In:</strong> <%= r.getCheckInDate() %></p>
 		<p><strong>Check-Out:</strong> <%= r.getCheckOutDate() %></p>
@@ -34,7 +33,7 @@
 		    <button type="submit" class="btn-orange">Confirm</button>
 		</form>
 		
-		<form action="reservation.jsp" method="get" style="display:inline;">
+		<form action="book.jsp" method="get" style="display:inline;">
 		    <button type="submit" class="btn-outline">Cancel</button>
 		</form>
 	</section>

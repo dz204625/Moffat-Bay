@@ -19,7 +19,7 @@
     <section class="hero">
         <h3>Escape to Moffat Bay Lodge — your peaceful retreat on the edge of wilderness and waterfront. Enjoy breathtaking views, cozy accommodations, and the warmth of Pacific Northwest hospitality.</h3>
         <p>Experience tranquility, adventure, and comfort — all in one unforgettable stay.</p>
-        <button class="btn-orange" onclick="location.href='reservation.jsp'">Book Now</button>
+        <button class="btn-orange" onclick="location.href='book.jsp'">Book Now</button>
     </section>
     
     <section>
@@ -28,16 +28,7 @@
 		    List<Room> rooms = dao.getAllRooms();
 		%>
 		
-    	<div class="wrapper">
-		  	<h2>Find Your Reservation</h2>
-		    <form action="LookupController" method="get">
-		        <label>Search by Reservation ID or Email:</label>
-		        <input type="text" name="search" placeholder="Enter ID or email" required>
-		        <button type="submit" class="btn-orange">Search</button>
-		    </form>
-		</div>
-	    
-		<div class="room-list">
+    			<div class="room-list">
 		<h2>Check Out Some of Our Rooms</h2>
 		    <%
 		        if (rooms != null && !rooms.isEmpty()) {
