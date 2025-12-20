@@ -92,7 +92,6 @@
                         </table>
                     </div>
                 <% } %>
-
             <% } else if (searched) { %>
                 <p style="color:#a94442; font-weight:bold; margin-top:20px;">
                     No reservations found matching your search.

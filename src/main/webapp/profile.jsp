@@ -1,4 +1,4 @@
-<%@ page import="dao.ReservationDAO, model.Reservation, dao.RoomDAO, model.Room,java.util.List" %>
+<%@ page import="dao.ReservationDAO, dao.CustomerDAO, model.Reservation, dao.RoomDAO, model.Room,java.util.List" %>
 <%@ page session="true" %>
 
 <head>
@@ -16,6 +16,7 @@
 <%
 	RoomDAO roomDAO = new RoomDAO();
     ReservationDAO dao = new ReservationDAO();
+    CustomerDAO customerDAO = new CustomerDAO();
     String firstName = (String) session.getAttribute("customerFirstName");
     String lastName = (String) session.getAttribute("customerLastName");
     String phone = (String) session.getAttribute("phone");
@@ -41,33 +42,61 @@
 	    	<p>Email: <%=email %></p>
 	    	<hr>
 	<% } %>
+            <% if (reservations != null && !reservations.isEmpty()) { %>
+                <h3 style="margin:20px 0;">Existing Reservations:</h3>
 
-	
-	<% if (reservations != null && !reservations.isEmpty()) { %>
-		<h3>Existing Reservations</h3>
-	
-	    <% for (Reservation res : reservations) { %>
-	        <div style="border:1px solid #ccc; padding:15px; margin-bottom:15px; border-radius:8px;">
-	            <h4>Reservation Number:<%= res.getReservationId() %></h4>
-	            <p>
-	                This reservation is for a 
-	                <strong><%=roomDAO.getRoomById(res.getRoomId()).getRoomType() %></strong> room,
-	                booked for <strong><%= res.getNumGuests() %></strong> guest(s).
-	            </p>
-	            <p>
-	                The stay begins on <strong><%= res.getCheckInDate() %></strong> 
-	                and ends on <strong><%= res.getCheckOutDate() %></strong>.
-	            </p>
-	            <p>
-	                The total cost of this reservation is 
-	                <strong>$<%= res.getTotalPrice() %></strong>.
-	            </p>
-	        </div>
-	    <% } %>
-	
-	<% } else if (searched) { %>
-	    <p>No reservations found matching your search.</p>
-	<% } %>
+                <% for (Reservation res : reservations) { %>
+                    <div style="
+                        background-color:#f5f1e6;
+                        border:1px solid #e0d6b8;
+                        border-radius:10px;
+                        padding:18px;
+                        margin-bottom:20px;
+                        box-shadow:0 4px 8px rgba(0,0,0,0.08);
+                    ">
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <td style="font-weight:bold; padding:8px; width:35%;">Reservation Number</td>
+                                <td style="padding:8px;"><%= res.getReservationId() %></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; padding:8px;">Guest Name</td>
+                                <td style="padding:8px;">
+                                    <%= customerDAO.getCustomerFullNameById(res.getCustomerId()) %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; padding:8px;">Room Type</td>
+                                <td style="padding:8px;">
+                                    <%= roomDAO.getRoomById(res.getRoomId()).getRoomType() %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; padding:8px;">Number of Guests</td>
+                                <td style="padding:8px;"><%= res.getNumGuests() %></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; padding:8px;">Check-in Date</td>
+                                <td style="padding:8px;"><%= res.getCheckInDate() %></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; padding:8px;">Check-out Date</td>
+                                <td style="padding:8px;"><%= res.getCheckOutDate() %></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; padding:8px;">Total Price</td>
+                                <td style="padding:8px; font-weight:bold; color:#6b4f1d;">
+                                    $<%= res.getTotalPrice() %>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                <% } %>
+            <% } else if (searched) { %>
+                <p style="color:#a94442; font-weight:bold; margin-top:20px;">
+                    No reservations found matching your search.
+                </p>
+            <% } %>
 </section>
 <!-- Include Footer -->
     <jsp:include page="footer.jsp" />

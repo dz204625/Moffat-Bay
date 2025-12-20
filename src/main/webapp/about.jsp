@@ -40,18 +40,7 @@
 			    <textarea name="message" rows="5" required></textarea><br><br>
 			
 			    <button type="submit" class="btn-orange">Send Message</button>
-			</form>
-
-        <h4>Hours</h4>
-            <p>Online Chat</p>
-            <p>Mon &#8211; Fri: 9am &#8211; 6pm</p>
-            <p>Sat &#8211; Sun: 10am &#8211; 4pm</p>
-
-		<h4>Location</h4>
-            <p>Moffat Bay Lodge</p>
-            <p>123 Seaside Drive</p> 
-            <p>Moffat Bay, WA 12345</p>
-		 
+			</form>		 
 	</section>
 
 

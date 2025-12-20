@@ -23,6 +23,7 @@
     </section>
     
     <section>
+    
     	<%
 		    RoomDAO dao = new RoomDAO();
 		    List<Room> rooms = dao.getAllRooms();

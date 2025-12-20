@@ -22,7 +22,7 @@
         <div class="room-action-box">
             <p class="price">$<%= room.getPricePerNight() %> / night</p>
             <button class="btn-orange" 
-			        onclick="location.href='reservation.jsp?roomId=<%= room.getRoomId() %>'">
+			        onclick="location.href='book.jsp?roomId=<%= room.getRoomId() %>'">
 			    Select the Room
 			</button>
         </div>

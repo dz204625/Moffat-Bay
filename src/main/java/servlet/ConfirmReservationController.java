@@ -10,12 +10,9 @@ import java.io.IOException;
 @WebServlet("/ConfirmReservationController")
 public class ConfirmReservationController extends HttpServlet {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);
@@ -30,13 +27,16 @@ public class ConfirmReservationController extends HttpServlet {
         boolean success = reservationDAO.addReservation(r);
 
         if (success) {
-            session.removeAttribute("reservation"); // clear session
-            session.removeAttribute("room");            
-            request.setAttribute("message", "Reservation confirmed!");
-            request.getRequestDispatcher("reservationSummary.jsp").forward(request, response);
+            request.setAttribute("successMessage", "✅ Reservation confirmed successfully!");
+            session.removeAttribute("reservation");
+            session.removeAttribute("room");
         } else {
-            request.setAttribute("error", "Failed to confirm reservation.");
-            request.getRequestDispatcher("reservationSummary.jsp").forward(request, response);
+            request.setAttribute("errorMessage", "❌ Failed to confirm reservation. Please try again.");
         }
+
+        request.getRequestDispatcher("reservationSummary.jsp").forward(request, response);
+        //response.sendRedirect("index.jsp");
+
     }
 }
+
