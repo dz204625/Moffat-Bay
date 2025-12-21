@@ -51,7 +51,7 @@
                 <div>
                     <h3>Whale Watching</h3>
                     <ul>
-                        <li>One of the world’s premier whale-watching regions</li>
+                        <li>One of the world&apos;s premier whale-watching regions</li>
                         <li>See orcas, humpback whales, and porpoises</li>
                         <li>Viewing available from boats or scenic lookout points</li>
                         <li>Unforgettable experience for nature lovers</li>
